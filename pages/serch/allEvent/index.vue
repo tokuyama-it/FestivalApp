@@ -1,6 +1,7 @@
 <template>
   <section class="container">
       <h1 class="title">全ての企画を検索する</h1>
+      <nuxt-link to="/serch">検索ページに戻る</nuxt-link>
       <div class="inputWord">
         <table>
           <tr>
@@ -9,6 +10,9 @@
             </th>
             <th>
               <button @click="doSerch" class="btn">検索</button>
+            </th>
+            <th>
+              <button @click="printAll">一覧</button>
             </th>
           </tr>
         </table>
@@ -55,6 +59,10 @@ export default {
       }
       console.log(this.json_data);
       console.log(this.find_data);
+    },
+    printAll:function() {
+      this.serchWord = "";
+      this.doSerch();
     }
   },
   created: function (){
