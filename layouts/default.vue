@@ -4,7 +4,7 @@
       <header>
         <ul>
           <li>
-            <a href="#">スケジュール</a>
+            <a href="/schedule">スケジュール</a>
           </li>
           <li>
             <a href="/serch/allEvent">企画検索</a>
