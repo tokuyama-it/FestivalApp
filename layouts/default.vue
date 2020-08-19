@@ -14,7 +14,7 @@
           </li>
         </ul>
       </header>
-      <h1>omarutiRTA</h1>
+      <h1>omaturiRTA</h1>
       <Nuxt />
       <footer>made by ITをむさぼる会</footer>
     </div>
