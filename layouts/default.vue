@@ -22,6 +22,12 @@
 </template>
 
 <style>
+:root {
+  /* テキストの基本色 */
+  --app_text_color: silver;
+  /* アプリ名のフォント */
+  --app_name_font: 'Do Hyeon', sans-serif;
+}
 html {
   font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -40,7 +46,7 @@ header li {
 
 h1 {
   text-align: center;
-  font-family: 'Do Hyeon';
+  font-family: var(--app_name_font);
 }
 
 .warapper {
