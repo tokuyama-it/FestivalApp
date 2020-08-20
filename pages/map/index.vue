@@ -4,15 +4,15 @@
 
 <script>
 //leafletの呼び出し
-import "leaflet/dist/leaflet.css";
-import L from "leaflet";
+import "../../node_modules/leaflet/dist/leaflet.css";
+import L from "../../node_modules/leaflet";
 //マーカーの画像の設定
 delete L.Icon.Default.prototype._getIconUrl
 
 L.Icon.Default.mergeOptions({
-  iconUrl: require("leaflet/dist/images/marker-icon.png"),
-  iconRetinaUrl: require("leaflet/dist/images/marker-icon-2x.png"),
-  shadowUrl: require("leaflet/dist/images/marker-shadow.png")
+  iconUrl: require("../../node_modules/leaflet/dist/images/marker-icon.png"),
+  iconRetinaUrl: require("../../node_modules/leaflet/dist/images/marker-icon-2x.png"),
+  shadowUrl: require("../../node_modules/leaflet/dist/images/marker-shadow.png")
 });
 
 export default {
