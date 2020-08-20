@@ -5010,6 +5010,18 @@ launch-editor@^2.2.1:
     chalk "^2.3.0"
     shell-quote "^1.6.1"
 
+leaflet-search@^2.9.8:
+  version "2.9.8"
+  resolved "https://registry.yarnpkg.com/leaflet-search/-/leaflet-search-2.9.8.tgz#67adbd06016e67459e84a0493e946dd4384169b4"
+  integrity sha512-w/0qcllcNVzlfhup7apLc7hamOaZrtGfxMDqX6ItlUjNBz08CMk7bxcwITIVbL8wFYqTnVsBI8zUBKzypQo2uw==
+  dependencies:
+    leaflet "*"
+
+leaflet@*, leaflet@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/leaflet/-/leaflet-1.6.0.tgz#aecbb044b949ec29469eeb31c77a88e2f448f308"
+  integrity sha512-CPkhyqWUKZKFJ6K8umN5/D2wrJ2+/8UIpXppY7QDnUZW5bZL5+SEI2J7GBpwh4LIupOKqbNSQXgqmrEJopHVNQ==
+
 leven@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/leven/-/leven-3.1.0.tgz#77891de834064cccba82ae7842bb6b14a13ed7f2"

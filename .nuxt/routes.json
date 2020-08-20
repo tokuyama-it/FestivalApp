@@ -1,9 +1,44 @@
 [
   {
+    "name": "map",
+    "path": "/map",
+    "component": "/home/kunihirokazui/Documents/FestivalApp/pages/map/index.vue",
+    "chunkName": "pages/map/index"
+  },
+  {
+    "name": "serch",
+    "path": "/serch",
+    "component": "/home/kunihirokazui/Documents/FestivalApp/pages/serch/index.vue",
+    "chunkName": "pages/serch/index"
+  },
+  {
+    "name": "serch-allEvent",
+    "path": "/serch/allEvent",
+    "component": "/home/kunihirokazui/Documents/FestivalApp/pages/serch/allEvent/index.vue",
+    "chunkName": "pages/serch/allEvent/index"
+  },
+  {
+    "name": "serch-food",
+    "path": "/serch/food",
+    "component": "/home/kunihirokazui/Documents/FestivalApp/pages/serch/food/index.vue",
+    "chunkName": "pages/serch/food/index"
+  },
+  {
+    "name": "serch-omise",
+    "path": "/serch/omise",
+    "component": "/home/kunihirokazui/Documents/FestivalApp/pages/serch/omise/index.vue",
+    "chunkName": "pages/serch/omise/index"
+  },
+  {
+    "name": "serch-stage",
+    "path": "/serch/stage",
+    "component": "/home/kunihirokazui/Documents/FestivalApp/pages/serch/stage/index.vue",
+    "chunkName": "pages/serch/stage/index"
+  },
+  {
     "name": "index",
     "path": "/",
-    "component": "/Users/yanagitakafumi/projects/open_hack_u/FestivalApp/pages/index.vue",
-    "chunkName": "pages/index",
-    "_name": "_56117ff6"
+    "component": "/home/kunihirokazui/Documents/FestivalApp/pages/index.vue",
+    "chunkName": "pages/index"
   }
 ]

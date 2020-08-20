@@ -12,9 +12,9 @@ import { setContext, getLocation, getRouteData, normalizeError } from './utils'
 
 /* Plugins */
 
-import nuxt_plugin_plugin_5e6d4763 from 'nuxt_plugin_plugin_5e6d4763' // Source: ./components/plugin.js (mode: 'all')
-import nuxt_plugin_webfontloader_2cdf280e from 'nuxt_plugin_webfontloader_2cdf280e' // Source: ./webfontloader.js (mode: 'client')
-import nuxt_plugin_axios_0265a20e from 'nuxt_plugin_axios_0265a20e' // Source: ./axios.js (mode: 'all')
+import nuxt_plugin_plugin_3fada592 from 'nuxt_plugin_plugin_3fada592' // Source: ./components/plugin.js (mode: 'all')
+import nuxt_plugin_webfontloader_1f305bcd from 'nuxt_plugin_webfontloader_1f305bcd' // Source: ./webfontloader.js (mode: 'client')
+import nuxt_plugin_axios_357432cd from 'nuxt_plugin_axios_357432cd' // Source: ./axios.js (mode: 'all')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -53,7 +53,7 @@ async function createApp(ssrContext, config = {}) {
   // here we inject the router and store to all child components,
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = {
-    head: {"title":"","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":""}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"}],"style":[],"script":[]},
+    head: {"title":"FestivalApp","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"## Build Setup"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"}],"style":[],"script":[]},
 
     router,
     nuxt: {
@@ -167,16 +167,16 @@ async function createApp(ssrContext, config = {}) {
   }
   // Plugin execution
 
-  if (typeof nuxt_plugin_plugin_5e6d4763 === 'function') {
-    await nuxt_plugin_plugin_5e6d4763(app.context, inject)
+  if (typeof nuxt_plugin_plugin_3fada592 === 'function') {
+    await nuxt_plugin_plugin_3fada592(app.context, inject)
   }
 
-  if (process.client && typeof nuxt_plugin_webfontloader_2cdf280e === 'function') {
-    await nuxt_plugin_webfontloader_2cdf280e(app.context, inject)
+  if (process.client && typeof nuxt_plugin_webfontloader_1f305bcd === 'function') {
+    await nuxt_plugin_webfontloader_1f305bcd(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_axios_0265a20e === 'function') {
-    await nuxt_plugin_axios_0265a20e(app.context, inject)
+  if (typeof nuxt_plugin_axios_357432cd === 'function') {
+    await nuxt_plugin_axios_357432cd(app.context, inject)
   }
 
   // Lock enablePreview in context
