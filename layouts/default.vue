@@ -4,17 +4,17 @@
       <header>
         <ul>
           <li>
-            <a href="#">スケジュール</a>
+            <a href="/schedule">スケジュール</a>
           </li>
           <li>
-            <a href="#">企画検索</a>
+            <a href="/serch/allEvent">企画検索</a>
           </li>
           <li>
             <a href="#">お知らせ</a>
           </li>
         </ul>
       </header>
-      <h1>omarutiRTA</h1>
+      <h1>omaturiRTA</h1>
       <Nuxt />
       <footer>made by ITをむさぼる会</footer>
     </div>
@@ -22,6 +22,12 @@
 </template>
 
 <style>
+:root {
+  /* テキストの基本色 */
+  --app_text_color: silver;
+  /* アプリ名のフォント */
+  --app_name_font: 'Do Hyeon', sans-serif;
+}
 html {
   font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -40,7 +46,7 @@ header li {
 
 h1 {
   text-align: center;
-  font-family: 'Do Hyeon';
+  font-family: var(--app_name_font);
 }
 
 .warapper {

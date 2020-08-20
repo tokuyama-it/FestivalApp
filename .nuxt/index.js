@@ -12,9 +12,9 @@ import { setContext, getLocation, getRouteData, normalizeError } from './utils'
 
 /* Plugins */
 
-import nuxt_plugin_plugin_3fada592 from 'nuxt_plugin_plugin_3fada592' // Source: ./components/plugin.js (mode: 'all')
-import nuxt_plugin_webfontloader_1f305bcd from 'nuxt_plugin_webfontloader_1f305bcd' // Source: ./webfontloader.js (mode: 'client')
-import nuxt_plugin_axios_357432cd from 'nuxt_plugin_axios_357432cd' // Source: ./axios.js (mode: 'all')
+import nuxt_plugin_plugin_614efe4a from 'nuxt_plugin_plugin_614efe4a' // Source: ./components/plugin.js (mode: 'all')
+import nuxt_plugin_webfontloader_06432171 from 'nuxt_plugin_webfontloader_06432171' // Source: ./webfontloader.js (mode: 'client')
+import nuxt_plugin_axios_2768dc71 from 'nuxt_plugin_axios_2768dc71' // Source: ./axios.js (mode: 'all')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -167,16 +167,16 @@ async function createApp(ssrContext, config = {}) {
   }
   // Plugin execution
 
-  if (typeof nuxt_plugin_plugin_3fada592 === 'function') {
-    await nuxt_plugin_plugin_3fada592(app.context, inject)
+  if (typeof nuxt_plugin_plugin_614efe4a === 'function') {
+    await nuxt_plugin_plugin_614efe4a(app.context, inject)
   }
 
-  if (process.client && typeof nuxt_plugin_webfontloader_1f305bcd === 'function') {
-    await nuxt_plugin_webfontloader_1f305bcd(app.context, inject)
+  if (process.client && typeof nuxt_plugin_webfontloader_06432171 === 'function') {
+    await nuxt_plugin_webfontloader_06432171(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_axios_357432cd === 'function') {
-    await nuxt_plugin_axios_357432cd(app.context, inject)
+  if (typeof nuxt_plugin_axios_2768dc71 === 'function') {
+    await nuxt_plugin_axios_2768dc71(app.context, inject)
   }
 
   // Lock enablePreview in context
