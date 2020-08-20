@@ -1,51 +1,58 @@
 [
   {
+    "name": "map",
+    "path": "/map",
+    "component": "/home/kunihirokazui/Documents/FestivalApp/pages/map/index.vue",
+    "chunkName": "pages/map/index",
+    "_name": "_ae5abb84"
+  },
+  {
     "name": "schedule",
     "path": "/schedule",
-    "component": "/home/fukuda-1/Programing/openHuckU/FestivalApp/pages/schedule/index.vue",
+    "component": "/home/kunihirokazui/Documents/FestivalApp/pages/schedule/index.vue",
     "chunkName": "pages/schedule/index",
-    "_name": "_cf80bda2"
+    "_name": "_2ac7b48b"
   },
   {
     "name": "serch",
     "path": "/serch",
-    "component": "/home/fukuda-1/Programing/openHuckU/FestivalApp/pages/serch/index.vue",
+    "component": "/home/kunihirokazui/Documents/FestivalApp/pages/serch/index.vue",
     "chunkName": "pages/serch/index",
-    "_name": "_6c0cc2fa"
+    "_name": "_38e4aeb2"
   },
   {
     "name": "serch-allEvent",
     "path": "/serch/allEvent",
-    "component": "/home/fukuda-1/Programing/openHuckU/FestivalApp/pages/serch/allEvent/index.vue",
+    "component": "/home/kunihirokazui/Documents/FestivalApp/pages/serch/allEvent/index.vue",
     "chunkName": "pages/serch/allEvent/index",
-    "_name": "_a1d7cd4a"
+    "_name": "_54bf37b7"
   },
   {
     "name": "serch-food",
     "path": "/serch/food",
-    "component": "/home/fukuda-1/Programing/openHuckU/FestivalApp/pages/serch/food/index.vue",
+    "component": "/home/kunihirokazui/Documents/FestivalApp/pages/serch/food/index.vue",
     "chunkName": "pages/serch/food/index",
-    "_name": "_52847d00"
+    "_name": "_30e32448"
   },
   {
     "name": "serch-omise",
     "path": "/serch/omise",
-    "component": "/home/fukuda-1/Programing/openHuckU/FestivalApp/pages/serch/omise/index.vue",
+    "component": "/home/kunihirokazui/Documents/FestivalApp/pages/serch/omise/index.vue",
     "chunkName": "pages/serch/omise/index",
-    "_name": "_29fb9211"
+    "_name": "_33407135"
   },
   {
     "name": "serch-stage",
     "path": "/serch/stage",
-    "component": "/home/fukuda-1/Programing/openHuckU/FestivalApp/pages/serch/stage/index.vue",
+    "component": "/home/kunihirokazui/Documents/FestivalApp/pages/serch/stage/index.vue",
     "chunkName": "pages/serch/stage/index",
-    "_name": "_23e46c1c"
+    "_name": "_115aadd4"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "/home/fukuda-1/Programing/openHuckU/FestivalApp/pages/index.vue",
+    "component": "/home/kunihirokazui/Documents/FestivalApp/pages/index.vue",
     "chunkName": "pages/index",
-    "_name": "_805d7ce6"
+    "_name": "_7330b6b1"
   }
 ]

@@ -3,13 +3,14 @@ import Router from 'vue-router'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _cf80bda2 = () => interopDefault(import('../pages/schedule/index.vue' /* webpackChunkName: "pages/schedule/index" */))
-const _6c0cc2fa = () => interopDefault(import('../pages/serch/index.vue' /* webpackChunkName: "pages/serch/index" */))
-const _a1d7cd4a = () => interopDefault(import('../pages/serch/allEvent/index.vue' /* webpackChunkName: "pages/serch/allEvent/index" */))
-const _52847d00 = () => interopDefault(import('../pages/serch/food/index.vue' /* webpackChunkName: "pages/serch/food/index" */))
-const _29fb9211 = () => interopDefault(import('../pages/serch/omise/index.vue' /* webpackChunkName: "pages/serch/omise/index" */))
-const _23e46c1c = () => interopDefault(import('../pages/serch/stage/index.vue' /* webpackChunkName: "pages/serch/stage/index" */))
-const _805d7ce6 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
+const _ae5abb84 = () => interopDefault(import('../pages/map/index.vue' /* webpackChunkName: "pages/map/index" */))
+const _2ac7b48b = () => interopDefault(import('../pages/schedule/index.vue' /* webpackChunkName: "pages/schedule/index" */))
+const _38e4aeb2 = () => interopDefault(import('../pages/serch/index.vue' /* webpackChunkName: "pages/serch/index" */))
+const _54bf37b7 = () => interopDefault(import('../pages/serch/allEvent/index.vue' /* webpackChunkName: "pages/serch/allEvent/index" */))
+const _30e32448 = () => interopDefault(import('../pages/serch/food/index.vue' /* webpackChunkName: "pages/serch/food/index" */))
+const _33407135 = () => interopDefault(import('../pages/serch/omise/index.vue' /* webpackChunkName: "pages/serch/omise/index" */))
+const _115aadd4 = () => interopDefault(import('../pages/serch/stage/index.vue' /* webpackChunkName: "pages/serch/stage/index" */))
+const _7330b6b1 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 // TODO: remove in Nuxt 3
 const emptyFn = () => {}
@@ -28,32 +29,36 @@ export const routerOptions = {
   scrollBehavior,
 
   routes: [{
+    path: "/map",
+    component: _ae5abb84,
+    name: "map"
+  }, {
     path: "/schedule",
-    component: _cf80bda2,
+    component: _2ac7b48b,
     name: "schedule"
   }, {
     path: "/serch",
-    component: _6c0cc2fa,
+    component: _38e4aeb2,
     name: "serch"
   }, {
     path: "/serch/allEvent",
-    component: _a1d7cd4a,
+    component: _54bf37b7,
     name: "serch-allEvent"
   }, {
     path: "/serch/food",
-    component: _52847d00,
+    component: _30e32448,
     name: "serch-food"
   }, {
     path: "/serch/omise",
-    component: _29fb9211,
+    component: _33407135,
     name: "serch-omise"
   }, {
     path: "/serch/stage",
-    component: _23e46c1c,
+    component: _115aadd4,
     name: "serch-stage"
   }, {
     path: "/",
-    component: _805d7ce6,
+    component: _7330b6b1,
     name: "index"
   }],
 
