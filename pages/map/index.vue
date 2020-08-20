@@ -20,22 +20,25 @@ export default {
     //地図の初期設定
     var map = L.map("app",{center: L.latLng(35.0104229,138.4946545),zoom: 18}) //マップ作成
     .addLayer(L.tileLayer("https://{s}.tile.osm.org/{z}/{x}/{y}.png")); //レイヤーの作成
-
+    
+    //マーカーとそれにつけるポップアップの作成
     var marker = L.marker([35.6746615,139.7673382]).addTo(map)
     .bindPopup("ここは東京駅です")
     .openPopup();
-
-    map.locate({ setView: true, maxZoom: 10}, 5000);
+    
+    //現在位置取得
+    map.locate({ setView: true, maxZoom: 10}, 5000); //現在位置の座標を5秒ごとに取得
+    //見つかったら
     function onLocationFound(e){
-      L.marker(e.latlng)
-      .addTo(map)
-      .bindPopup("予想される現在位置はここです")
-      .openPopup();
+      L.marker(e.latlng) //ピンを指す
+      .addTo(map) //マップに追加
+      .bindPopup("予想される現在位置はここです") //ポップアップの設置
+      .openPopup(); //表示
     }
     map.on("locationfound", onLocationFound);
-
+    //見つからなかったら
     function onLocationError(e){
-      alert("現在位置が取得できませんでした");
+      alert("現在位置が取得できませんでした"); //エラーアラートを出す
     }
     map.on("locationerror",onLocationError);
 
