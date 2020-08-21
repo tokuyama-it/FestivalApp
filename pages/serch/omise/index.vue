@@ -69,6 +69,7 @@ export default {
   created: function (){
     axios.get(base_url + 'kikaku.json' + '?orderBy=%22startAt%22').then((res)=>{
             this.json_data = res.data;
+            this.printAllFoods();
         }).catch(function(error){
             console.log("ERROR!! faild to get data");
         });

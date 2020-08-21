@@ -73,6 +73,7 @@ export default {
                   ':' + d.getMinutes();
     axios.get(base_url + 'kikaku.json').then((res)=>{
             this.json_data = res.data;
+            this.printAll();
         }).catch(function(error){
             console.log("ERROR!! faild to get data");
         })
