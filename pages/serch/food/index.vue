@@ -53,8 +53,8 @@ export default {
         if(this.json_data[item]['name'].match(this.serchWord) && this.json_data[item]['category']=="food"){
           console.log("find");
           this.find_data[item] = this.json_data[item];
-        }
-      }
+        };
+      };
       console.log(this.json_data);
       console.log(this.find_data);
     },
@@ -62,15 +62,17 @@ export default {
     printAllFoods: function(){
       this.serchWord = '';
       this.doSerch();
-    }
+    },
   },
   created: function (){
     axios.get(base_url + 'kikaku.json').then((res)=>{
             this.json_data = res.data;
+            this.printAllFoods();
         }).catch(function(error){
             console.log("ERROR!! faild to get data");
         });
   },
+
 }
 </script>
 
