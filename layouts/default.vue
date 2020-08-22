@@ -7,7 +7,7 @@
             <a href="/schedule">スケジュール</a>
           </li>
           <li>
-            <a href="/serch/allEvent">企画検索</a>
+            <a href="/serch">企画検索</a>
           </li>
           <li>
             <a href="#">お知らせ</a>
