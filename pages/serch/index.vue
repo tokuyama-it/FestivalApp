@@ -6,9 +6,11 @@
       <table>
         <tr>
           <th><button @click="setCategoryFlag('all')">全てのイベント</button></th>
+          <th><button @click="setCategoryFlag('main')">メインイベント</button></th>
           <th><button @click="setCategoryFlag('food')">食べ物</button></th>
           <th><button @click="setCategoryFlag('stage')">ステージイベント</button></th>
           <th><button @click="setCategoryFlag('experience')">体験型</button></th>
+          <th><button @click="setCategoryFlag('exhibition')">展示</button></th>
         </tr>
       </table>
       <table>
@@ -74,6 +76,12 @@ export default {
           break;
         case 'experience':
           this.message="体験型イベント";
+          break;
+        case 'main':
+          this.message="メインイベント"
+          break;
+        case 'exhibition':
+          this.message="展示";
           break;
         default:
           this.message="error";
