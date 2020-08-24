@@ -47,16 +47,6 @@
 const base_url = 'https://matsurirta.firebaseio.com/'
 
 export default {
-  data: function() {
-    return {
-      uri: '焼きそばが売り切れました'
-    }
-  },
-  methods: {
-    async getUri() {
-      this.uri = await this.$axios.$get(base_url)
-    }
-  }
 }
 </script>
 
