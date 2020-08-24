@@ -6,7 +6,7 @@
         <nav>
           <ul>
             <li>
-              <n-link to="#">スケジュール</n-link>
+              <n-link to="/schedule">スケジュール</n-link>
             </li>
             <li>
               <n-link to="/serch">企画検索</n-link>
