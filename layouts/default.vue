@@ -2,7 +2,6 @@
   <div>
     <div class="warapper">
       <header>
-<<<<<<< HEAD
         <n-link to="/"><h1 class="title">omaturiRTA</h1></n-link>
         <nav>
           <ul>
@@ -17,19 +16,6 @@
             </li>
           </ul>
         </nav>
-=======
-        <ul>
-          <li>
-            <a href="/schedule">スケジュール</a>
-          </li>
-          <li>
-            <a href="/serch">企画検索</a>
-          </li>
-          <li>
-            <a href="#">お知らせ</a>
-          </li>
-        </ul>
->>>>>>> 0b85087e90111adf0d5d61689cafee6f8bfb96ff
       </header>
       <Nuxt />
       <footer>
