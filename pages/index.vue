@@ -13,7 +13,7 @@
       </div>
       <div class="panel_area">
         <div id="panel1" class="tab_panel">
-          <p>{{uri}}</p>
+          <p></p>
         </div>
         <div id="panel2" class="tab_panel">
           <p>売り切れは発生していません</p>

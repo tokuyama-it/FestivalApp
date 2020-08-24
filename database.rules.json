@@ -1,0 +1,13 @@
+{
+  "rules": {
+    "notice" : {
+      ".indexOn":["setTime"]
+    },
+    "kikaku" : {
+      ".indexOn":["startAt","endAt","kikakuID","category"]
+    },
+
+    ".read": true,
+    ".write": true
+  }
+}

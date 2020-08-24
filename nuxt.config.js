@@ -32,7 +32,10 @@ export default {
      ** Plugins to load before mounting the App
      ** https://nuxtjs.org/guide/plugins
      */
-    plugins: [],
+    plugins: [
+        // firebaseを追加
+        '~/plugins/firebase',
+    ],
     /*
      ** Auto import components
      ** See https://nuxtjs.org/api/configuration-components
@@ -51,8 +54,10 @@ export default {
     modules: [
         // Doc: https://axios.nuxtjs.org/usage
         '@nuxtjs/axios',
-        'nuxt-webfontloader'
         // webfontloaderを追加
+        'nuxt-webfontloader',
+        // dotenvを追加
+        '@nuxtjs/dotenv'
     ],
     webfontloader: {
         // googleフォントを使用
