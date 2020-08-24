@@ -120,9 +120,8 @@ export default {
               sortedJsonArr[i-1] = tmp;
             }
           }
-  
-  
         }
+
         //console.log(sortedJsonArr[0]);
         //console.log(this.json_data[sortedJsonArr[0]]["endAt"],this.json_data[sortedJsonArr[1]]["endAt"]);
         //console.log(sortedJsonArr);
