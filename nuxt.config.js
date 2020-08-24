@@ -57,13 +57,22 @@ export default {
         // webfontloaderを追加
         'nuxt-webfontloader',
         // dotenvを追加
-        '@nuxtjs/dotenv'
+        '@nuxtjs/dotenv',
+        // basic認証用モジュールを追加
+        'nuxt-basic-auth-module',
     ],
+
     webfontloader: {
         // googleフォントを使用
         google: {
             families: ['Do Hyeon'],
         }
+    },
+
+    basic:{
+        name:process.env.AUTH_NAME,
+        pass:process.env.AUTH_PASS,
+        enabled: process.env.ENABLE_BASIC_AUTH === true
     },
     /*
      ** Axios module configuration
