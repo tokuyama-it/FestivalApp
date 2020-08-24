@@ -13,7 +13,7 @@
       </div>
       <div class="panel_area">
         <div id="panel1" class="tab_panel">
-          <p>お知らせはありません</p>
+          <p>{{uri}}</p>
         </div>
         <div id="panel2" class="tab_panel">
           <p>売り切れは発生していません</p>
@@ -44,7 +44,20 @@
 </template>
 
 <script>
-export default {};
+const base_url = 'https://matsurirta.firebaseio.com/'
+
+export default {
+  data: function() {
+    return {
+      uri: '焼きそばが売り切れました'
+    }
+  },
+  methods: {
+    async getUri() {
+      this.uri = await this.$axios.$get(base_url)
+    }
+  }
+}
 </script>
 
 <style>
@@ -102,6 +115,7 @@ input[type="radio"] {
   cursor: pointer;
   transition: ease 0.2s opacity;
   border-radius: 5px 5px 0 0;
+  border: solid 1px ;
 }
 
 .tab_area span {
@@ -115,13 +129,15 @@ input[type="radio"] {
   background: #fff;
   border-radius: 8px 8px 8px 8px;
   margin: 0 auto;
+  border: solid 1px #000;
 }
 
 .tab_panel {
   width: 100%;
-  padding: 80px 0;
+  padding: 10px 0;
   display: none;
   color: #000;
+  overflow: scroll;
 }
 
 .tab_panel p {
@@ -133,7 +149,7 @@ input[type="radio"] {
 #tab1:checked ~ .tab_area .tab1_label {
   background: #fff;
   color: #000;
-  border: solid 1px red;
+  border: solid 1px #000;
   border-radius: 5px 5px 0 0;
   border-bottom: transparent;
 }
@@ -145,7 +161,7 @@ input[type="radio"] {
 #tab2:checked ~ .tab_area .tab2_label {
   background: #fff;
   color: #000;
-  border: solid 1px #ffc899;
+  border: solid 1px #000;
   border-radius: 5px 5px 0 0;
   border-bottom: transparent;
 }
