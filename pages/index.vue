@@ -82,7 +82,6 @@ p {
 }
 .child {
   flex: 1 1 150px;
-  /* height: 120px; */
   border-radius: 5px;
   background: #ffa500;
   margin: 5px;
