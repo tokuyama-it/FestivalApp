@@ -72,7 +72,7 @@ export default {
     basic:{
         name:process.env.AUTH_NAME,
         pass:process.env.AUTH_PASS,
-        enabled: process.env.ENABLE_BASIC_AUTH === true
+        enabled: process.env.ENABLE_BASIC_AUTH === 'true'
     },
     /*
      ** Axios module configuration
