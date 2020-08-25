@@ -13,7 +13,7 @@
       </div>
       <div class="panel_area">
         <div id="panel1" class="tab_panel">
-          <p>お知らせはありません</p>
+          <p></p>
         </div>
         <div id="panel2" class="tab_panel">
           <p>売り切れは発生していません</p>
@@ -34,7 +34,7 @@
         </n-link>
       </div>
       <div class="child">
-        <n-link to="#">
+        <n-link to="/notice">
           お知らせ
           <p>ここをタップするとお知らせに</p>
         </n-link>
@@ -109,7 +109,7 @@ input[type="radio"] {
   cursor: pointer;
   transition: ease 0.2s opacity;
   border-radius: 5px 5px 0 0;
-  border: solid 1px;
+  border: solid 1px ;
 }
 .tab_area span {
   width: 3px;
