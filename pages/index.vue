@@ -45,7 +45,6 @@
 
 <script>
 const base_url = 'https://matsurirta.firebaseio.com/'
-
 export default {
 }
 </script>
@@ -62,15 +61,12 @@ export default {
   position: relative;
   width: 80%;
 }
-
 p {
   color: var(--app_text_color);
 }
-
 .parent {
   display: flex;
 }
-
 .child {
   flex: 1 1 150px;
   height: 120px;
@@ -79,20 +75,16 @@ p {
   margin: 5px;
   font-size: 2px;
 }
-
 .tab_wrap {
   margin: 60px auto;
 }
-
 input[type="radio"] {
   display: none;
 }
-
 .tab_area {
   font-size: 0;
   margin: 0 10px;
 }
-
 .tab_area label {
   width: 90px;
   margin: 0 5px;
@@ -107,21 +99,18 @@ input[type="radio"] {
   border-radius: 5px 5px 0 0;
   border: solid 1px ;
 }
-
 .tab_area span {
   width: 3px;
   height: 3px;
   border-radius: 50%;
   color: #ddd;
 }
-
 .panel_area {
   background: #fff;
   border-radius: 8px 8px 8px 8px;
   margin: 0 auto;
   border: solid 1px #000;
 }
-
 .tab_panel {
   width: 100%;
   padding: 10px 0;
@@ -129,13 +118,11 @@ input[type="radio"] {
   color: #000;
   overflow: scroll;
 }
-
 .tab_panel p {
   font-size: 14px;
   letter-spacing: 1px;
   text-align: center;
 }
-
 #tab1:checked ~ .tab_area .tab1_label {
   background: #fff;
   color: #000;
@@ -143,11 +130,9 @@ input[type="radio"] {
   border-radius: 5px 5px 0 0;
   border-bottom: transparent;
 }
-
 #tab1:checked ~ .panel_area #panel1 {
   display: block;
 }
-
 #tab2:checked ~ .tab_area .tab2_label {
   background: #fff;
   color: #000;
@@ -155,7 +140,6 @@ input[type="radio"] {
   border-radius: 5px 5px 0 0;
   border-bottom: transparent;
 }
-
 #tab2:checked ~ .panel_area #panel2 {
   display: block;
 }
@@ -168,11 +152,9 @@ input[type="radio"] {
     </div>
   </div>
 </template>
-
 <script>
 export default {}
 </script>
-
 <style>
 .container {
   max-width: 100vw;
