@@ -36,6 +36,8 @@
   --app_name_font: "Do Hyeon", sans-serif;
   /* アプリ名の色 */
   --app_name_color: #000;
+  /* フッターの背景色 */
+  --footer_background_color: #000;
 }
 header {
   display: flex;
@@ -47,7 +49,6 @@ header ul {
 }
 header li {
   display: inline;
-  /* margin-left: 15px; */
   font-size: 10px;
 }
 ul li:nth-child(2) {
@@ -69,17 +70,27 @@ ul li:nth-child(3) {
 footer {
   position: absolute;
   bottom: 0;
-  height: 50px;
+  width: 100%;
+  background-color: var(--footer_background_color);
 }
 footer p {
   color: var(--app_text_color);
-  font-size: 15px;
+  font-size: 10px;
+  margin-left: 10%;
+  padding: 7px;
 }
 *,
 *::before,
 *::after {
   box-sizing: border-box;
   margin: 0;
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
 }
 a {
   text-decoration: none;
