@@ -1,37 +1,49 @@
 <template>
   <div class="container">
     <div class="sold">
-      <h4 @click="getData()">売り切れ情報</h4>
+      <h4>売り切れ情報</h4>
       <ul>
-        <li></li>
+        <li v-for="item in soldStatus">{{item.urikire}}</li>
       </ul>
     </div>
     <hr />
     <div class="notice">
       <h4>お知らせ</h4>
       <ul>
-        <li></li>
+        <li v-for="item in noticeStatus">{{item.notice}}</li>
       </ul>
     </div>
   </div>
 </template>
 <script>
 const axios = require("axios");
-const base_url = "https://matsurirta.firebaseio.com/kikaku.json?print=pretty";
+const sold_url = "https://matsurirta.firebaseio.com/kikaku.json?print=pretty";
+const notice_url = "https://maturirta.firebaseio.com/notice.json?print=pretty";
+
 export default {
-  data: function () {
-    return {
-      json_data: {},
-    };
+  data: {
+    soldStatus: [],
+    noticeStatus: [],
   },
   methods: {
-    getData: function () {
-      axios.get(base_url).then((res) => {
+    getSoldStatus: function () {
+      axios.get(sold_url).then((res) => {
         this.json_data = res.data;
         console.log(this.json_data);
+        this.soldStatus.push({
+          urikire: element.urikire
+        });
       });
     },
-
+    getNoticeStatus: function () {
+      axios.get(notice_url).then((res) => {
+        this.json_data = res.data;
+        console.log(this.json_data);
+        this.noticeStatus.push({
+          notice: element.notice
+        })
+      })
+    }
   },
 };
 </script>
@@ -47,11 +59,4 @@ export default {
   position: relative;
 }
 
-.sold ul {
-  list-style: none;
-}
-
-.notice ul {
-  list-style: none;
-}
 </style>

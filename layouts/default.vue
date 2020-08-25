@@ -2,9 +2,9 @@
   <div>
     <div class="warapper">
       <header>
-        <n-link to="/"><h1 class="title">omaturiRTA</h1></n-link>
+        <n-link to="/"><h1 class="title">#ふぁんふぇす</h1></n-link>
         <nav>
-          <ul>
+          <ul class="links">
             <li>
               <n-link to="#">スケジュール</n-link>
             </li>
@@ -33,7 +33,7 @@
   /* テキストの基本色 */
   --app_text_color: #808080;
   /* アプリ名のフォント */
-  --app_name_font: "Do Hyeon", sans-serif;
+  --app_name_font: "M PLUS 1p", sans-serif;
   /* アプリ名の色 */
   --app_name_color: #000;
   /* フッターの背景色 */
@@ -51,10 +51,10 @@ header li {
   display: inline;
   font-size: 10px;
 }
-ul li:nth-child(2) {
+.links li:nth-child(2) {
   margin-left: 15px;
 }
-ul li:nth-child(3) {
+.links li:nth-child(3) {
   margin-left: 15px;
 }
 .title {
@@ -62,6 +62,7 @@ ul li:nth-child(3) {
   font-family: var(--app_name_font);
   font-size: 20px;
   color: var(--app_name_color);
+  font-weight: 100;
 }
 .warapper {
   min-height: 100vh;

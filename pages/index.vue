@@ -13,7 +13,11 @@
       </div>
       <div class="panel_area">
         <div id="panel1" class="tab_panel">
-          <p></p>
+          <ul>
+            <li>売り切れ</li>
+            <hr>
+            <li>売りきて</li>
+          </ul>
         </div>
         <div id="panel2" class="tab_panel">
           <p>売り切れは発生していません</p>
@@ -85,10 +89,11 @@ p {
   border-radius: 5px;
   background: #ffa500;
   margin: 5px;
-  font-size: 2px;
+  font-size: 12px;
 }
 .tab_wrap {
-  margin: 60px auto;
+  margin-top: 160px;
+  margin-bottom: 50px;
 }
 input[type="radio"] {
   display: none;
@@ -109,7 +114,7 @@ input[type="radio"] {
   cursor: pointer;
   transition: ease 0.2s opacity;
   border-radius: 5px 5px 0 0;
-  border: solid 1px ;
+  border: solid 1px;
 }
 .tab_area span {
   width: 3px;
@@ -125,6 +130,7 @@ input[type="radio"] {
 }
 .tab_panel {
   width: 100%;
+  height: 150px;
   padding: 10px 0;
   display: none;
   color: #000;
@@ -132,8 +138,16 @@ input[type="radio"] {
 }
 .tab_panel p {
   font-size: 14px;
-  letter-spacing: 1px;
+  /* letter-spacing: 1px; */
   text-align: center;
+}
+.tab_panel li {
+  font-size: 13px;
+  text-align: left;
+  list-style: none;
+}
+.tab_panel ul {
+  overflow: scroll;
 }
 #tab1:checked ~ .tab_area .tab1_label {
   background: #fff;
@@ -154,6 +168,9 @@ input[type="radio"] {
 }
 #tab2:checked ~ .panel_area #panel2 {
   display: block;
+}
+hr {
+  width: 100%;
 }
 </style>
 <!-- これがテンプレート

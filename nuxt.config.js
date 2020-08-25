@@ -62,7 +62,7 @@ export default {
     webfontloader: {
         // googleフォントを使用
         google: {
-            families: ['Do Hyeon'],
+            families: ['M PLUS 1p:Medium 500,Thin 100'],
         }
     },
     /*
