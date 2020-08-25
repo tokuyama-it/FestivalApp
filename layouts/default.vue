@@ -12,7 +12,7 @@
               <n-link to="/serch">企画検索</n-link>
             </li>
             <li>
-              <n-link to="#">お知らせ</n-link>
+              <n-link to="/notice">お知らせ</n-link>
             </li>
           </ul>
         </nav>
