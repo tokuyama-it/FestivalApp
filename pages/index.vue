@@ -13,7 +13,7 @@
       </div>
       <div class="panel_area">
         <div id="panel1" class="tab_panel">
-          <p></p>
+          <p>お知らせはありません</p>
         </div>
         <div id="panel2" class="tab_panel">
           <p>売り切れは発生していません</p>
@@ -44,9 +44,22 @@
 </template>
 
 <script>
-const base_url = 'https://matsurirta.firebaseio.com/'
-export default {
-}
+// const axios = require('axios');
+// const base_url = 'https://matsurirta.firebaseio.com/';
+// export default {
+//   data: function() {
+//     return {
+//       json_data: {}
+//     }
+//   },
+//   methods: {
+//     getData: function() {
+//     axios.get(base_url).then((res) => {
+//       this.json_data = res.data;
+//     });
+//   }
+//   }
+// }
 </script>
 
 <style>
@@ -69,7 +82,7 @@ p {
 }
 .child {
   flex: 1 1 150px;
-  height: 120px;
+  /* height: 120px; */
   border-radius: 5px;
   background: #ffa500;
   margin: 5px;
@@ -97,7 +110,7 @@ input[type="radio"] {
   cursor: pointer;
   transition: ease 0.2s opacity;
   border-radius: 5px 5px 0 0;
-  border: solid 1px ;
+  border: solid 1px;
 }
 .tab_area span {
   width: 3px;
