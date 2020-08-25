@@ -45,7 +45,7 @@
 
 <script>
 // const axios = require('axios');
-// const base_url = 'https://matsurirta.firebaseio.com/';
+// const base_url = 'https://matsurirta.firebaseio.com/kikaku';
 // export default {
 //   data: function() {
 //     return {
@@ -172,7 +172,6 @@ export default {}
   max-width: 100vw;
   margin: 0 auto;
   min-height: 100vh;
-  display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
