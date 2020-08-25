@@ -21,7 +21,7 @@
       <footer>
         <p>
           made by
-          <a href="#">ITをむさぼる会</a>
+          <a href="https://github.com/tokuyama-it">ITをむさぼる会</a>
         </p>
       </footer>
     </div>
