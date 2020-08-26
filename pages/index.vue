@@ -25,7 +25,7 @@
     </div>
     <div class="parent">
       <div class="child">
-        <n-link to="#">
+        <n-link to="/schedule">
           スケジュール
           <p>ここをタップするとスケジュールに</p>
         </n-link>
@@ -37,9 +37,9 @@
         </n-link>
       </div>
       <div class="child">
-        <n-link to="/notice">
-          お知らせ
-          <p>ここをタップするとお知らせに</p>
+        <n-link to="/map">
+        地図
+          <p>ここをタップするとマップに</p>
         </n-link>
       </div>
     </div>
@@ -100,7 +100,7 @@ p {
 .child {
   flex: 1 1 150px;
   border-radius: 5px;
-  background: #ffa500;
+  background: #ff4500;
   margin: 5px;
   font-size: 12px;
 }

@@ -25,17 +25,19 @@
       </header>
       <Nuxt />
       <footer>
+        <a
+          href="https://twitter.com/share?ref_src=twsrc%5Etfw"
+          class="twitter-share-button"
+          data-size="large"
+          data-text="〇〇祭に参加しました!#〇〇祭#ふぁんふぇす"
+          data-lang="ja"
+          data-show-count="false"
+        >Tweet</a>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         <p>
           made by
           <a href="https://github.com/tokuyama-it">ITをむさぼる会</a>
         </p>
-        <div class="icon">
-          <a
-            href="https://twitter.com/intent/tweet?hashtags=〇〇祭, ふぁんふぇす"
-            class="twitter-hashtags-btn"
-            target="_blank"
-          >Twitterでつぶやく</a>
-        </div>
       </footer>
     </div>
   </div>
@@ -96,7 +98,7 @@ footer p {
   margin-left: 10%;
   padding: 2px;
 }
-.icon {
+.twitter-share-button {
   float: right;
 }
 *,
