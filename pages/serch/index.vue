@@ -53,6 +53,9 @@
           <td>{{json_data[data]["endAt"]}}</td>
           <td width="50%" >{{json_data[data]["summary"]}}</td>
         </tr>
+        <tr>
+          <th colspan="4">{{selectedDate}}のイベントは以上です．</th>
+        </tr>
       </table>
     </div>
   </section>
