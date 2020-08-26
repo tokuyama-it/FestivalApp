@@ -2,20 +2,26 @@
   <div>
     <div class="warapper">
       <header>
-        <n-link to="/"><h1 class="title">#ふぁんふぇす</h1></n-link>
-        <nav>
-          <ul class="links">
-            <li>
-              <n-link to="#">スケジュール</n-link>
-            </li>
-            <li>
-              <n-link to="/serch">企画検索</n-link>
-            </li>
-            <li>
-              <n-link to="/notice">お知らせ</n-link>
-            </li>
-          </ul>
-        </nav>
+        <n-link to="/">
+          <h3 class="title">#ふぁんふぇす</h3>
+        </n-link>
+        <ul class="links">
+          <li>
+            <n-link to="/schedule">スケジュール</n-link>
+          </li>
+          <li>
+            <n-link to="/serch">企画検索</n-link>
+          </li>
+          <li>
+            <n-link to="/keyward">キーワード集め</n-link>
+          </li>
+          <li>
+            <n-link to="/map">地図</n-link>
+          </li>
+          <li>
+            <n-link to="/admin">管理者用ページ</n-link>
+          </li>
+        </ul>
       </header>
       <Nuxt />
       <footer>
@@ -23,6 +29,13 @@
           made by
           <a href="https://github.com/tokuyama-it">ITをむさぼる会</a>
         </p>
+        <div class="icon">
+          <a
+            href="https://twitter.com/intent/tweet?hashtags=〇〇祭, ふぁんふぇす"
+            class="twitter-hashtags-btn"
+            target="_blank"
+          >Twitterでつぶやく</a>
+        </div>
       </footer>
     </div>
   </div>
@@ -40,39 +53,42 @@
   --footer_background_color: #000;
 }
 header {
-  display: flex;
-  justify-content: center;
-}
-header ul {
-  list-style: none;
+  width: 100%;
   margin: 0 auto;
+  text-align: center;
+  padding: 10px 0;
+}
+.links {
+  margin: 0 auto;
+  text-align: center;
+  padding: 5px 0;
 }
 header li {
-  display: inline;
+  list-style: none;
+  display: inline-block;
   font-size: 10px;
-}
-.links li:nth-child(2) {
-  margin-left: 15px;
-}
-.links li:nth-child(3) {
-  margin-left: 15px;
+  margin: 0 20px;
 }
 .title {
-  text-align: center;
   font-family: var(--app_name_font);
-  font-size: 20px;
+  text-align: center;
   color: var(--app_name_color);
   font-weight: 100;
 }
 .warapper {
   min-height: 100vh;
   position: relative;
+  box-sizing: border-box;
+  padding-bottom: 100px;
 }
 footer {
+  /* display: flex; */
+  margin-top: auto;
   position: absolute;
   bottom: 0;
   width: 100%;
   background-color: var(--footer_background_color);
+  padding: 20px;
 }
 footer p {
   color: var(--app_text_color);
@@ -80,17 +96,20 @@ footer p {
   margin-left: 10%;
   padding: 2px;
 }
+.icon {
+  float: right;
+}
 *,
 *::before,
 *::after {
   box-sizing: border-box;
   margin: 0;
   -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
 }
 a {
   text-decoration: none;

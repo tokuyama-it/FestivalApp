@@ -15,7 +15,6 @@
         <div id="panel1" class="tab_panel">
           <ul>
             <li>売り切れ</li>
-            <hr>
             <li>売りきて</li>
           </ul>
         </div>
@@ -48,22 +47,36 @@
 </template>
 
 <script>
-// const axios = require('axios');
-// const base_url = 'https://matsurirta.firebaseio.com/kikaku';
+// const axios = require("axios");
+// const sold_url = "https://matsurirta.firebaseio.com/kikaku.json?print=pretty";
+// const notice_url = "https://maturirta.firebaseio.com/notice.json?print=pretty";
+
 // export default {
-//   data: function() {
-//     return {
-//       json_data: {}
-//     }
+//   data: {
+//     soldStatus: [],
+//     noticeStatus: [],
 //   },
 //   methods: {
-//     getData: function() {
-//     axios.get(base_url).then((res) => {
-//       this.json_data = res.data;
-//     });
-//   }
-//   }
-// }
+//     getSoldStatus: function () {
+//       axios.get(sold_url).then((res) => {
+//         this.json_data = res.data;
+//         console.log(this.json_data);
+//         this.soldStatus.push({
+//           urikire: element.urikire
+//         });
+//       });
+//     },
+//     getNoticeStatus: function () {
+//       axios.get(notice_url).then((res) => {
+//         this.json_data = res.data;
+//         console.log(this.json_data);
+//         this.noticeStatus.push({
+//           notice: element.notice
+//         })
+//       })
+//     }
+//   },
+// };
 </script>
 
 <style>
@@ -92,8 +105,8 @@ p {
   font-size: 12px;
 }
 .tab_wrap {
-  margin-top: 160px;
-  margin-bottom: 50px;
+  margin-top: 50px;
+  margin-bottom: 20px;
 }
 input[type="radio"] {
   display: none;
@@ -144,7 +157,7 @@ input[type="radio"] {
 .tab_panel li {
   font-size: 13px;
   text-align: left;
-  list-style: none;
+  /* list-style: none; */
 }
 .tab_panel ul {
   overflow: scroll;
