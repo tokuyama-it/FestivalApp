@@ -1,8 +1,10 @@
 <template>
   <section>
+    <hr>
     <h1 class="title"></h1>
     <div class="inputWord">
       <h2>{{message}}を検索中</h2>
+      <hr>
       <table>
         <tr>
           <td v-for="(data, key) in fesLengTmpArr" :key="key">
@@ -36,12 +38,20 @@
     </div>
     <div class="serchArea">
       <table border="3">
+        <tr>
+          <th colspan="4">{{selectedDate}}</th>
+        </tr>
+        <tr>
+          <th>イベント名</th>
+          <th>開始</th>
+          <th>終了</th>
+          <th>紹介</th>
+        </tr>
         <tr v-for="(data, key) in find_data" :key="key">
-          <td>{{data.name}}</td>
-          <td>{{data.startAt}}</td>
-          <td>{{data.endAt}}</td>
-          <td>{{data.date}}</td>
-          <td width="50%" >{{data.summary}}</td>
+          <td>{{json_data[data]["name"]}}</td>
+          <td>{{json_data[data]["startAt"]}}</td>
+          <td>{{json_data[data]["endAt"]}}</td>
+          <td width="50%" >{{json_data[data]["summary"]}}</td>
         </tr>
       </table>
     </div>
@@ -58,7 +68,7 @@ export default {
         serchCategory:'',
         message:'全てのイベント',
         json_data:{},
-        find_data:{},
+        find_data:[],
         serchWord:'',
         isAllFind:true,
         confJson:{},//祭の設定
@@ -69,7 +79,7 @@ export default {
         },
         fesLengTmpArr: new Array(1),
         selectedFlag:false,
-        selectedDate:"",//選択された日付、文字列 yyyy-mm-dd
+        selectedDate:"日にちを選択してください",//選択された日付、文字列 yyyy-mm-dd
 
       }
   },
@@ -107,22 +117,48 @@ export default {
 
     doSerch:function(){
       this.find_data = {};
+      var sorted_keyArr = [];
       console.log(this.json_data);
       //データを探す．文字列はダブルクォーテーションで囲まれているので気をつける．Do not use ''. Use """.
       for(var item in this.json_data){
+        //各種フラグを設定
         var matchNameFlag = this.json_data[item]['name'].match(this.serchWord);
         var categoryFlag = this.isAllFind || this.json_data[item]['category']==this.serchCategory;
         var dateFlag = ((! this.selectedFlag) || this.json_data[item]['date'] == this.selectedDate);
-        console.log(matchNameFlag,categoryFlag,this.selectedFlag,dateFlag);
-        console.log(this.json_data[item]['date'] == this.selectedDate);
-        console.log(this.json_data[item]["date"], this.selectedDate);
+        //console.log(matchNameFlag,categoryFlag,this.selectedFlag,dateFlag);
+        //console.log(this.json_data[item]['date'] == this.selectedDate);
+        //console.log(this.json_data[item]["date"], this.selectedDate);
         if(matchNameFlag && categoryFlag && dateFlag){
-          console.log("find");
+          //console.log("find");
           this.find_data[item] = this.json_data[item];
         }
       }
-      console.log(this.json_data);
-      console.log(this.find_data);
+      //console.log(this.json_data);
+      //console.log(this.find_data);
+      //日にちによる抽出は完了している．
+      //開始時間で並び替える
+      //とりまjsonのキーを配列に突っ込む
+      for(let key in this.find_data){
+        sorted_keyArr.push(key);
+      }
+      //console.log("sorted_keyArr");
+      //console.log(sorted_keyArr);
+      var tmp = '';
+      for(let min = 0; min < sorted_keyArr.length-1; min++){
+        for(let i = sorted_keyArr.length-1; min<i; i--){
+          console.log("dev")
+          console.log(this.json_data[sorted_keyArr[i]]["startAt"]);
+          console.log(this.json_data[sorted_keyArr[i-1]]["startAt"]);
+          console.log(this.json_data[sorted_keyArr[i]]["startAt"] < this.json_data[sorted_keyArr[i-1]]["startAt"])
+          if(this.json_data[sorted_keyArr[i]]["startAt"] < this.json_data[sorted_keyArr[i-1]]["startAt"]){
+            tmp = sorted_keyArr[i];
+            sorted_keyArr[i] = sorted_keyArr[i-1];
+            sorted_keyArr[i-1] = tmp;
+          }
+        }
+      }
+      console.log(sorted_keyArr);
+      this.find_data = sorted_keyArr.slice();
     },
 
     printAllFoods: function(){
@@ -140,6 +176,12 @@ export default {
       console.log(this.FestivalConf);
 
       this.fesLengTmpArr = new Array(this.FestivalConf.fesLength);
+      //初期値として最初の日にちが選択されるようにするための処理
+      var fsDate = new Date(this.FestivalConf.firstDate);
+      this.selectedDate = fsDate.getFullYear()
+                        + '-' + (fsDate.getMonth() < 9 ? '0' +(fsDate.getMonth() + 1):(fsDate.getMonth() + 1))
+                        + '-' + (fsDate.getDate() < 9 ? '0' +(fsDate.getDate()):(fsDate.getDate()));
+      this.switchDate(0);
     },
 
     switchDate:function(date){
@@ -158,7 +200,7 @@ export default {
   },
 
   created:function(){
-    axios.get(base_url + 'kikaku.json' + '?orderBy=%22startAt%22').then((res)=>{
+    axios.get(base_url + 'kikaku.json').then((res)=>{
             this.json_data = res.data;
             this.printAllFoods();
         }).catch(function(error){
