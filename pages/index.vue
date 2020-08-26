@@ -13,11 +13,13 @@
       </div>
       <div class="panel_area">
         <div id="panel1" class="tab_panel">
-          <p>お知らせはありません</p>
+          <ul>
+            <li v-for="notice in noticeData">{{notice.title}}:{{notice.body}}</li>
+          </ul>
         </div>
         <div id="panel2" class="tab_panel">
           <ul>
-            <li v-for="sold in soldData" :key="sold.urikire">{{sold.name}}は{{sold.urikire}}です</li>
+            <li v-for="sold in soldData">{{sold.name}}は{{sold.urikire}}です</li>
           </ul>
         </div>
       </div>
@@ -47,14 +49,14 @@
 
 <script>
 const sold_url = "https://matsurirta.firebaseio.com/kikaku.json";
-// const notice_url = "https://maturirta.firebaseio.com/notice.json?print=pretty";
+const notice_url = "https://matsurirta.firebaseio.com/notice.json";
 
 export default {
   async asyncData({$axios}) {
     const soldData = await $axios.$get(sold_url)
-    // const noticeData = await $axios.$get(notice_url)
+    const noticeData = await $axios.$get(notice_url)
     return {
-      soldData
+      soldData, noticeData
     }
   }
 };
