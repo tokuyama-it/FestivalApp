@@ -91,3 +91,6 @@ sw.*
 
 # vsコードの設定ファイル
 .vscode/
+
+# yarn.lockのpush防止
+yarn.lock
