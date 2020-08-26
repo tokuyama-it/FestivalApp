@@ -13,7 +13,10 @@
       </div>
       <div class="panel_area">
         <div id="panel1" class="tab_panel">
-          <p></p>
+          <ul>
+            <li>売り切れ</li>
+            <li>売りきて</li>
+          </ul>
         </div>
         <div id="panel2" class="tab_panel">
           <p>売り切れは発生していません</p>
@@ -22,7 +25,7 @@
     </div>
     <div class="parent">
       <div class="child">
-        <n-link to="#">
+        <n-link to="/schedule">
           スケジュール
           <p>ここをタップするとスケジュールに</p>
         </n-link>
@@ -34,9 +37,9 @@
         </n-link>
       </div>
       <div class="child">
-        <n-link to="#">
-          お知らせ
-          <p>ここをタップするとお知らせに</p>
+        <n-link to="/map">
+        地図
+          <p>ここをタップするとマップに</p>
         </n-link>
       </div>
     </div>
@@ -44,9 +47,36 @@
 </template>
 
 <script>
-const base_url = 'https://matsurirta.firebaseio.com/'
-export default {
-}
+// const axios = require("axios");
+// const sold_url = "https://matsurirta.firebaseio.com/kikaku.json?print=pretty";
+// const notice_url = "https://maturirta.firebaseio.com/notice.json?print=pretty";
+
+// export default {
+//   data: {
+//     soldStatus: [],
+//     noticeStatus: [],
+//   },
+//   methods: {
+//     getSoldStatus: function () {
+//       axios.get(sold_url).then((res) => {
+//         this.json_data = res.data;
+//         console.log(this.json_data);
+//         this.soldStatus.push({
+//           urikire: element.urikire
+//         });
+//       });
+//     },
+//     getNoticeStatus: function () {
+//       axios.get(notice_url).then((res) => {
+//         this.json_data = res.data;
+//         console.log(this.json_data);
+//         this.noticeStatus.push({
+//           notice: element.notice
+//         })
+//       })
+//     }
+//   },
+// };
 </script>
 
 <style>
@@ -69,14 +99,14 @@ p {
 }
 .child {
   flex: 1 1 150px;
-  height: 120px;
   border-radius: 5px;
-  background: #ffa500;
+  background: #ff4500;
   margin: 5px;
-  font-size: 2px;
+  font-size: 12px;
 }
 .tab_wrap {
-  margin: 60px auto;
+  margin-top: 50px;
+  margin-bottom: 20px;
 }
 input[type="radio"] {
   display: none;
@@ -97,7 +127,7 @@ input[type="radio"] {
   cursor: pointer;
   transition: ease 0.2s opacity;
   border-radius: 5px 5px 0 0;
-  border: solid 1px ;
+  border: solid 1px;
 }
 .tab_area span {
   width: 3px;
@@ -113,6 +143,7 @@ input[type="radio"] {
 }
 .tab_panel {
   width: 100%;
+  height: 150px;
   padding: 10px 0;
   display: none;
   color: #000;
@@ -120,8 +151,16 @@ input[type="radio"] {
 }
 .tab_panel p {
   font-size: 14px;
-  letter-spacing: 1px;
+  /* letter-spacing: 1px; */
   text-align: center;
+}
+.tab_panel li {
+  font-size: 13px;
+  text-align: left;
+  /* list-style: none; */
+}
+.tab_panel ul {
+  overflow: scroll;
 }
 #tab1:checked ~ .tab_area .tab1_label {
   background: #fff;
@@ -143,6 +182,9 @@ input[type="radio"] {
 #tab2:checked ~ .panel_area #panel2 {
   display: block;
 }
+hr {
+  width: 100%;
+}
 </style>
 <!-- これがテンプレート
 <template>
@@ -160,7 +202,6 @@ export default {}
   max-width: 100vw;
   margin: 0 auto;
   min-height: 100vh;
-  display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
