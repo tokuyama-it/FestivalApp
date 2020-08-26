@@ -12,7 +12,13 @@
               <n-link to="/serch">企画検索</n-link>
             </li>
             <li>
-              <n-link to="#">お知らせ</n-link>
+              <n-link to="/keyward">キーワード集め</n-link>
+            </li>
+            <li>
+              <n-link to="/map">地図</n-link>
+            </li>
+            <li>
+              <n-link to="/admin">管理者用ページ</n-link>
             </li>
           </ul>
         </nav>
@@ -21,7 +27,7 @@
       <footer>
         <p>
           made by
-          <a href="#">ITをむさぼる会</a>
+          <a href="https://github.com/tokuyama-it">ITをむさぼる会</a>
         </p>
       </footer>
     </div>
