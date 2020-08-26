@@ -21,13 +21,13 @@
 
       <div class="notice">
         <h2>お知らせ</h2>
-        <button>追加</button>
+        <button @click="addNotice">追加</button>
         <table border="3">
           <tr>
             <td>タイトル</td>
             <td>内容</td>
           </tr>
-          <tr v-for="(data, key) in noticeData" :key="key">
+          <tr v-for="data in noticeData" :key="Renderingkey">
             <td><input type="text" v-model="data.title"></td>
             <td><input type="text" v-model="data.body"></td>
           <td>{{data.setTime.slice(0,4)
@@ -35,80 +35,182 @@
                   +'/'+data.setTime.slice(6,8)
                   +' '+data.setTime.slice(8,10)
                   +':'+data.setTime.slice(10,12)
-                }}に掲載
+                }}に追加
             </td>
+            <td><button @click="deleteNotice(data)">削除</button></td>
           </tr>
         </table>
       </div>
 
       <div class="event">
         <h2>出しもの</h2>
-        <button>追加</button>
+        <button @click="addEvent">追加</button>
         <table border="3">
           <tr>
             <td>名前</td>
-            <td>場所</td>
+            <td>カテゴリー</td>
             <td>実行日</td>
             <td>開始時間</td>
             <td>終了時間</td>
           </tr>
-          <tr v-for="(data, key) in eventData" :key="key">
+          <tr v-for="data in eventData" :key="Renderingkey">
             <td><input type="text" v-model="data.name"></td>
-            <td><input type="text" v-model="data.category"></td>
+            <td><select v-model="data.category" name="category" size="1">
+              <option value="main">メイン</option>
+              <option value="food">食べ物</option>
+              <option value="stage">ステージ</option>
+              <option value="experience">体験型</option>
+              <option value="exhibition">展示</option>
+              </select>
+            </td>
             <td><input type="date" v-model="data.date"></td>
             <td><input type="time" v-model="data.startAt"></td>
             <td><input type="time" v-model="data.endAt"></td>
+            <td><button @click="deleteEvent(data)">削除</button></td>
           </tr>
         </table>
       </div>
 
       <div class="map">
         <h2>地図の位置</h2>
-        <table border="3">
-          <tr>
-            <td>緯度</td>
-            <td><input type="number" v-model="detailData.locationY"></td>
-          </tr>
-          <tr>
-            <td>経度</td>
-            <td><input type="number" v-model="detailData.locationX"></td>
-          </tr>
-        </table>
-        <iframe :src="mapLink" width="100%" height="800px" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        <div id="app"></div>
       </div>
       <button @click="save">保存</button>
   </div>
 </template>
 
 <script>
+// firebaseの呼び出し
+import firebase from "~/plugins/firebase"
+//leafletの呼び出し
+import "leaflet/dist/leaflet.css";
+import L from "leaflet";
+
 const axios = require('axios');
+
+// firebase
 const base_url = 'https://matsurirta.firebaseio.com/';
-
-import firebase from "~/plugins/firebase.js"
-
 const db = firebase.firestore();
 const settings = { timestampsInSnapshots: true };
 db.settings(settings);
+const detailRef = firebase.database().ref('detail');
+const eventRef = firebase.database().ref('kikaku');
+const noticeRef = firebase.database().ref('notice');
 
-let detailRef = firebase.database().ref('detail');
-let locateRef = firebase.database().ref('kikaku');
-let niticeRef = firebase.database().ref('notice');
+//マーカーの画像の設定
+delete L.Icon.Default.prototype._getIconUrl
+
+L.Icon.Default.mergeOptions({
+  iconUrl: require("leaflet/dist/images/marker-icon.png"),
+  iconRetinaUrl: require("leaflet/dist/images/marker-icon-2x.png"),
+  shadowUrl: require("leaflet/dist/images/marker-shadow.png")
+});
 
 export default {
   data: function() {
     return{
+      // DOM更新用データ
+      Renderingkey:0,
+      // jsonデータ
+      mapData:{},
       detailData:{},
-      locateData:{},
       noticeData:{},
       eventData:{},
+      // お知らせ追加用データ
+      noticeBody:"",
+      noticeTitel:"",
+      // 出し物追加用データ
+      eventCategory:"",
+      eventDate:"",
+      eventStartAt:"",
+      eventEndAt:"",
+      eventName:"",
+      eventPlace:"",
+      eventSummary:"",
+      eventUrikire:"",
+      // 地図用データ
       mapLink:"",
      };
   },
   methods:{
+    // DOM更新
+    forceRerender() {
+      this.Renderingkey += 1;
+    },
+    // お知らせ追加
+    addNotice(){
+      let D = new Date();
+      let now=String(D.getFullYear())
+          +String(("0"+(D.getMonth()+1)).slice(-2),)
+          +String(("0"+D.getDate()).slice(-2))
+          +String(D.getHours())
+          +String(D.getMinutes());
+      let newNotice={
+        body:this.noticeBody,
+        setTime:now,
+        title:this.noticeTitel,
+      };
+      let index='noticeID'+String(Object.keys(this.noticeData).length);
+      this.noticeData[index]=newNotice;
+      console.log(this.noticeData);
+      this.forceRerender();
+    },
+    // お知らせ削除
+    deleteNotice(data){
+      try{
+      delete this.noticeData[data];
+      this.forceRerender();
+      console.log(data);
+      console.log(this.noticeData);
+      }catch(error){
+        // 例外処理
+        console.log("エラーメッセージ:\n"+error.massage);
+        alert("削除できませんでした。\nデベロッパーツールより、コンソールを確認して下さい。")
+      }
+    },
+    // 出しもの追加
+    addEvent(){
+      let newEvent={
+        category:this.eventCategory,
+        date:this.eventDate,
+        startAt:this.eventStartAt,
+        endAt:this.eventEndAt,
+        kikakuID:Object.keys(this.eventData).length,
+        name:this.eventName,
+        place:this.eventPlace,
+        price:this.eventPrice,
+        summary:this.eventSummary,
+        urikire:this.eventUrikire
+      };
+      let index='kikakuID'+String(Object.keys(this.eventData).length);
+      this.eventData[index]=newEvent;
+      console.log(this.eventData);
+      this.forceRerender();
+    },
+    deletEvent(data){
+      try{
+        this.eventData[data].remove();
+      }catch(error){
+        // 例外処理
+        console.log("エラーメッセージ:\n"+error.massage);
+        alert("削除できませんでした。\nデベロッパーツールより、コンソールを確認して下さい。")
+      }
+    },
+    // 変更を保存
     save(){
-      detailRef.update(this.detailData);
+      try{
+      detailRef.set(this.detailData);
+      eventRef.set(this.eventData);
+      noticeRef.set(this.noticeData);
+      alert('保存しました');
+      }catch(error){
+        // 例外処理
+        console.log("エラーメッセージ:\n"+error.massage);
+        alert('保存に失敗しました。\nデベロッパーツールより、コンソールを確認して下さい。');
+      }
     },
   },
+  
   created: function (){
     axios.get(base_url + 'detail.json').then((res)=>{
         console.log("get detail.json")
@@ -116,7 +218,6 @@ export default {
         }).catch(function(error){
             console.log("ERROR!! faild to get detailData");
         });
-    console.log(this.detailData);
 
     axios.get(base_url + 'notice.json').then((res)=>{
         console.log("get notice.json")
@@ -124,7 +225,6 @@ export default {
         }).catch(function(error){
             console.log("ERROR!! faild to get noticeData");
         });
-    console.log(this.noticeData);
 
     axios.get(base_url + 'kikaku.json').then((res)=>{
         console.log("get event.json")
@@ -132,12 +232,62 @@ export default {
         }).catch(function(error){
             console.log("ERROR!! faild to get eventData");
         });
-    console.log(this.eventData);
 
-    this.mapLink="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.5165773199997!2d"+this.detailData.locationX+"1551107!3d"+this.detailData.locationY+"08580777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188ec1a4463df1%3A0x6c0d289a8292810d!2z5rWF6I2J5a-6!5e0!3m2!1sja!2sjp!4v1597894163501!5m2!1sja!2sjp"
+    axios.get(base_url + 'map.json').then((res)=>{
+        console.log("get map.json")
+        this.mapData = res.data;
+        }).catch(function(error){
+            console.log("ERROR!! faild to get mapData");
+        });
     },
+  mounted:function(){
+    for(let i=0;i<this.mapData.length;i++){
+
+    }
+    //地図の初期設定
+    var map = L.map("app",{center: L.latLng(35.0104229,138.4946545),zoom: 18}) //マップ作成
+    .addLayer(L.tileLayer("https://{s}.tile.osm.org/{z}/{x}/{y}.png")); //レイヤーの作成
+    
+    //マーカーとそれにつけるポップアップの作成
+
+    L.marker([35.6746615,139.7673382]).addTo(map)
+    .bindPopup("ここは東京駅です")
+    .openPopup();
+
+    L.marker([35.7135121,139.7939416]).addTo(map)
+    .bindPopup("ここはまつりの中心です")
+    .openPopup();
+    
+    //現在位置取得
+    map.locate({ setView: true, maxZoom: 10}, 5000); //現在位置の座標を5秒ごとに取得
+    //見つかったら
+    function onLocationFound(e){
+      L.marker(e.latlng) //ピンを指す
+      .addTo(map) //マップに追加
+      .bindPopup("予想される現在位置はここです") //ポップアップの設置
+      .openPopup(); //表示
+    }
+    map.on("locationfound", onLocationFound);
+    //見つからなかったら
+    function onLocationError(e){
+      alert("現在位置が取得できませんでした"); //エラーアラートを出す
+    }
+    map.on("locationerror",onLocationError);
+
+    var popup = L.popup();
+
+    function onMapClick(e){
+      popup.setLatLng(e.latlng);
+      popup.setContent("キミがいる場所の座標はここだよ<br>"+ e.latlng.toString());
+      popup.openOn(map);
+    }
+    map.on("click", onMapClick);
+  }
 }
 </script>
 
 <style>
+#app{
+  height: 650px;
+}
 </style>

@@ -1,9 +1,11 @@
 <template>
-    <div id="text">
+<div class="tx">
+    <div id="text" class="tz">
       <p>キーワードを入力するっピ</p>
       <input type="text" size="5" id="key">
       <button v-on:click="run">確認</button>
     </div>
+</div>
 </template>
 <script>
 var origin="cider"  //指定キーワード
@@ -23,3 +25,19 @@ export default {
   }
 }
 </script>
+<style>
+.tx{
+  text-align: center;
+}
+.tz{
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform : translate(-50%,-50%);
+  transform : translate(-50%,-50%);
+}
+body{
+  background:rgb(114,0,38)
+}
+</style>
