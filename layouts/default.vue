@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="root">
     <div class="warapper">
       <header>
         <n-link to="/">
@@ -48,11 +48,26 @@
   /* テキストの基本色 */
   --app_text_color: #808080;
   /* アプリ名のフォント */
-  --app_name_font: "M PLUS 1p", sans-serif;
+  --app_name_font: "M PLUS 1p";
   /* アプリ名の色 */
   --app_name_color: #000;
   /* フッターの背景色 */
   --footer_background_color: #000;
+  /* 臨時のリンクの配色 */
+  --app_link_color: #fff;
+}
+.root {
+  background: #4776e6; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #8e54e9,
+    #4776e6
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #8e54e9,
+    #4776e6
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 header {
   width: 100%;
@@ -72,7 +87,7 @@ header li {
   margin: 0 20px;
 }
 .title {
-  font-family: var(--app_name_font);
+  font-family: var(--app_name_font), sans-serif;
   text-align: center;
   color: var(--app_name_color);
   font-weight: 100;
@@ -84,7 +99,6 @@ header li {
   padding-bottom: 100px;
 }
 footer {
-  /* display: flex; */
   margin-top: auto;
   position: absolute;
   bottom: 0;
@@ -115,6 +129,6 @@ footer p {
 }
 a {
   text-decoration: none;
-  color: var(--app_text_color);
+  color: var(--app_link_color);
 }
 </style>
