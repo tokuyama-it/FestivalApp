@@ -1,7 +1,7 @@
 <template>
   <!-- データベースから得られたステージイベントのスケジュールの自動生成 -->
   <section>
-    <h1>{{this.selectedDate}}</h1>
+    <h1>{{this.selectedDate}}のイベント</h1>
     <h1>{{message}}のスケジュール</h1>
     <table class="date">
       <tr>
@@ -30,10 +30,7 @@
         <td>{{json_data[data]["summary"]}}</td>
       </tr>
       <tr>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>選択した日の全てのイベントです</td>
+        <th colspan="4">{{selectedDate}}のイベントは以上です</th>
       </tr>
     </table>
   </section>
@@ -93,6 +90,7 @@ export default {
       this.dateJson = new Array(this.holdLength);
 
       this.firstDate = detailData["startDate"].replace(/-/g,'/');
+      this.switchDate(0);
       this.setEventJson();
       }).catch(function(error){
         console.log("ERROR!! faild to get detail Data");
