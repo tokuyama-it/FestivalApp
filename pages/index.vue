@@ -8,18 +8,17 @@
           <span></span>お知らせ
         </label>
         <label class="tab2_label" for="tab2">
-          <span></span>売り切れ情報
+          <span></span>運営情報
         </label>
       </div>
       <div class="panel_area">
         <div id="panel1" class="tab_panel">
-          <ul>
-            <li>売り切れ</li>
-            <li>売りきて</li>
-          </ul>
+          <p>お知らせはありません</p>
         </div>
         <div id="panel2" class="tab_panel">
-          <p>売り切れは発生していません</p>
+          <ul>
+            <li v-for="sold in soldData" :key="sold.urikire">{{sold.name}}は{{sold.urikire}}です</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -47,36 +46,18 @@
 </template>
 
 <script>
-// const axios = require("axios");
-// const sold_url = "https://matsurirta.firebaseio.com/kikaku.json?print=pretty";
+const sold_url = "https://matsurirta.firebaseio.com/kikaku.json";
 // const notice_url = "https://maturirta.firebaseio.com/notice.json?print=pretty";
 
-// export default {
-//   data: {
-//     soldStatus: [],
-//     noticeStatus: [],
-//   },
-//   methods: {
-//     getSoldStatus: function () {
-//       axios.get(sold_url).then((res) => {
-//         this.json_data = res.data;
-//         console.log(this.json_data);
-//         this.soldStatus.push({
-//           urikire: element.urikire
-//         });
-//       });
-//     },
-//     getNoticeStatus: function () {
-//       axios.get(notice_url).then((res) => {
-//         this.json_data = res.data;
-//         console.log(this.json_data);
-//         this.noticeStatus.push({
-//           notice: element.notice
-//         })
-//       })
-//     }
-//   },
-// };
+export default {
+  async asyncData({$axios}) {
+    const soldData = await $axios.$get(sold_url)
+    // const noticeData = await $axios.$get(notice_url)
+    return {
+      soldData
+    }
+  }
+};
 </script>
 
 <style>
@@ -100,7 +81,7 @@ p {
 .child {
   flex: 1 1 150px;
   border-radius: 5px;
-  background: #ff4500;
+  background: #fff;
   margin: 5px;
   font-size: 12px;
 }
@@ -167,7 +148,6 @@ input[type="radio"] {
   color: #000;
   border: solid 1px #000;
   border-radius: 5px 5px 0 0;
-  border-bottom: transparent;
 }
 #tab1:checked ~ .panel_area #panel1 {
   display: block;
@@ -177,7 +157,6 @@ input[type="radio"] {
   color: #000;
   border: solid 1px #000;
   border-radius: 5px 5px 0 0;
-  border-bottom: transparent;
 }
 #tab2:checked ~ .panel_area #panel2 {
   display: block;
