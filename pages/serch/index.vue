@@ -21,14 +21,18 @@
           <th>
             <button @click="setCategoryFlag('main')">メインイベント</button>
           </th>
-          <th><button @click="setCategoryFlag('food')">食べ物</button></th>
+          <th>
+            <button @click="setCategoryFlag('food')">食べ物</button>
+          </th>
           <th>
             <button @click="setCategoryFlag('stage')">ステージイベント</button>
           </th>
           <th>
             <button @click="setCategoryFlag('experience')">体験型</button>
           </th>
-          <th><button @click="setCategoryFlag('exhibition')">展示</button></th>
+          <th>
+            <button @click="setCategoryFlag('exhibition')">展示</button>
+          </th>
         </tr>
       </table>
 
@@ -70,13 +74,11 @@
 
 <style>
 h2 {
-  color: #f67690;
+  color: #ffffff;
 }
-body {
-  background: linear-gradient(#373b44, #4286f4);
-}
+
 table {
-  color: #f67690;
+  color: #ffffff;
 }
 button {
   background-color: #f67690;
@@ -87,7 +89,7 @@ button {
 const axios = require("axios");
 const base_url = "https://matsurirta.firebaseio.com/";
 export default {
-  data: function() {
+  data: function () {
     return {
       title: "イベント検索",
       serchCategory: "",
@@ -109,7 +111,7 @@ export default {
   },
 
   methods: {
-    setCategoryFlag: function(category) {
+    setCategoryFlag: function (category) {
       this.serchCategory = category;
       console.log(this.serchCategory);
       this.isAllFind = false;
@@ -139,7 +141,7 @@ export default {
       this.doSerch();
     },
 
-    doSerch: function() {
+    doSerch: function () {
       this.find_data = {};
       var sorted_keyArr = [];
       console.log(this.json_data);
@@ -195,12 +197,12 @@ export default {
       this.find_data = sorted_keyArr.slice();
     },
 
-    printAllFoods: function() {
+    printAllFoods: function () {
       this.serchWord = "";
       this.doSerch();
     },
 
-    setFesConf: function() {
+    setFesConf: function () {
       this.FestivalConf.firstDate = this.confJson["startDate"];
       this.FestivalConf.endDate = this.confJson["endDate"];
       var firstDate = new Date(this.FestivalConf.firstDate);
@@ -223,7 +225,7 @@ export default {
       this.switchDate(0);
     },
 
-    switchDate: function(date) {
+    switchDate: function (date) {
       //console.log("firestDate");
       //console.log(this.FestivalConf.firstDate);
       var selDate = new Date(this.FestivalConf.firstDate);
@@ -243,14 +245,14 @@ export default {
     },
   },
 
-  created: function() {
+  created: function () {
     axios
       .get(base_url + "kikaku.json")
       .then((res) => {
         this.json_data = res.data;
         this.printAllFoods();
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log("ERROR!! faild to get data");
       });
     axios.get(base_url + "detail.json").then((res) => {
