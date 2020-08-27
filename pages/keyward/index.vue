@@ -6,7 +6,7 @@
     <p id="text">キーワードを入力するっピ</p>
     </div>
     <div class="cp_iptxt">
-      <input type="text" size="5" id="key" placeholder="" class="ef" style="text-align: center;">
+      <input type="text" id="key" placeholder="" class="ef" style="text-align: center;" maxlength="5">
       <label>key</label>
       <span class="focus_line"></span>
     </div>
@@ -25,10 +25,12 @@ export default {
       if(origin==key){  //正解だった時
         var a = document.getElementById("text");
         a.innerHTML="正解だよ！";
+        document.getElementById("key").value = "";
       }
       else{  //違ったとき
         var a = document.getElementById("text");
         a.innerHTML="キーが違うようだ...";
+        document.getElementById("key").value = "";
       }
     }
   }
@@ -38,19 +40,21 @@ export default {
 .img1{
     background-image: url("t2.png");
     background-repeat:  no-repeat;
-    width:auto;
-    height:200px;
-    position: relative;
+    width:125px;
+    height:150px;
+    position: absolute;
+    top: 15%;
+    left: 0%;
     z-index: 2;
 }
 .img2{
   background-image: url("t3.png");
     background-repeat:  no-repeat;
-    width:250px;
-    height:500px;
+    width:140px;
+    height:165px;
     position: absolute;
-    bottom: -20.7%;
-    right: -6%;
+    bottom: 10%;
+    right: 0%;
     z-index: 2;
 }
 .tz{
