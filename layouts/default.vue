@@ -81,7 +81,7 @@ header li {
   font-family: var(--app_name_font), sans-serif;
   text-align: center;
   color: var(--app_name_color);
-  font-weight: 100;
+  font-weight: 500;
 }
 .warapper {
   min-height: 100vh;
