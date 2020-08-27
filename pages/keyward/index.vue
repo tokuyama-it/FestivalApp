@@ -3,7 +3,7 @@
   <div class="img1"></div>
   <div class="tz">
     <div class="tx">
-    <p id="text">キーワードを入力するっピ</p>
+    <p id="text">↓キーワードを入力↓</p>
     </div>
     <div class="cp_iptxt">
       <input type="text" id="key" placeholder="" class="ef" style="text-align: center;" maxlength="5">
