@@ -58,7 +58,7 @@
 }
 .root {
   background: #4776e6; /* fallback for old browsers */
-  background: linear-gradient(#373b44, #4286f4);
+  background: linear-gradient(#4286f4, #373b44);
 }
 header {
   width: 100%;
@@ -81,7 +81,7 @@ header li {
   font-family: var(--app_name_font), sans-serif;
   text-align: center;
   color: var(--app_name_color);
-  font-weight: 100;
+  font-weight: 500;
 }
 .warapper {
   min-height: 100vh;
