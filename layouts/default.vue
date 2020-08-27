@@ -59,6 +59,7 @@
 .root {
   background: #4776e6; /* fallback for old browsers */
   background: linear-gradient(#4286f4, #373b44);
+  font-family: sans-serif;
 }
 header {
   width: 100%;
