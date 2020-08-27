@@ -132,6 +132,7 @@ export default {
 	width: 100%;
 	letter-spacing: 1px;
 	padding-left: -4em;
+  color: #ffffff;
 }
 .cp_iptxt input[type='text']:focus {
 	outline: none;
@@ -139,7 +140,7 @@ export default {
 .ef {
 	padding: 4px 0;
 	border: 0;
-	border-bottom: 1px solid #fdfdfd;
+	border-bottom: 1px solid #ffffff;
 	background-color: transparent;
 }
 .ef ~ .focus_line {
@@ -149,7 +150,7 @@ export default {
 	width: 0;
 	height: 2px;
 	transition: 0.4s;
-	background-color: #2600ff;
+	background-color: #ffffff;
 }
 .ef ~ .focus_line {
 	position: absolute;

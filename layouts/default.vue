@@ -58,7 +58,7 @@
 }
 .root {
   background: #4776e6; /* fallback for old browsers */
-  background: linear-gradient(#373b44, #4286f4);
+  background: linear-gradient(#4286f4, #373b44);
 }
 header {
   width: 100%;
