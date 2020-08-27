@@ -14,12 +14,12 @@
       <div class="panel_area">
         <div id="panel1" class="tab_panel">
           <ul>
-            <li v-for="notice in noticeData">{{notice.title}}:{{notice.body}}</li>
+            <li v-for="item in noticeData">{{item.title}}:{{item.body}}</li>
           </ul>
         </div>
         <div id="panel2" class="tab_panel">
           <ul>
-            <li v-for="sold in soldData">{{sold.name}}は{{sold.urikire}}です</li>
+            <li v-for="item in soldData">{{item.name}}は{{item.urikire}}です</li>
           </ul>
         </div>
       </div>
