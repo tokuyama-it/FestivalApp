@@ -12,16 +12,18 @@
           </td>
         </tr>
       </table>
-      <table>
-        <tr>
-          <th><button @click="setCategoryFlag('all')">全てのイベント</button></th>
-          <th><button @click="setCategoryFlag('main')">メインイベント</button></th>
-          <th><button @click="setCategoryFlag('food')">食べ物</button></th>
-          <th><button @click="setCategoryFlag('stage')">ステージイベント</button></th>
-          <th><button @click="setCategoryFlag('experience')">体験型</button></th>
-          <th><button @click="setCategoryFlag('exhibition')">展示</button></th>
-        </tr>
-      </table>
+      <div style="overflow-y:auto">
+        <table>
+          <tr>
+            <th><button @click="setCategoryFlag('all')"><nobr>全て</nobr></button></th>
+            <th><button @click="setCategoryFlag('main')"><nobr>メイン</nobr></button></th>
+            <th><button @click="setCategoryFlag('food')"><nobr>食べ物</nobr></button></th>
+            <th><button @click="setCategoryFlag('stage')" ><nobr>ステージ</nobr></button></th>
+            <th><button @click="setCategoryFlag('experience')"><nobr>体験型</nobr></button></th>
+            <th><button @click="setCategoryFlag('exhibition')"><nobr>展示</nobr></button></th>
+          </tr>
+        </table>
+      </div>
       <table>
         <tr>
           <th>
