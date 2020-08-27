@@ -10,7 +10,7 @@
       <label>key</label>
       <span class="focus_line"></span>
     </div>
-    <button v-on:click="run" class="btn" ontouchstart="">UNLOCL</button>
+    <button v-on:click="run" class="btn" ontouchstart="">UNLOCK</button>
   </div>
   <div class="img2"></div>
 </div>
@@ -24,11 +24,11 @@ export default {
       var key=document.getElementById("key").value;  //入力値をkeyに格納
       if(origin==key){  //正解だった時
         var a = document.getElementById("text");
-        a.innerHTML="正解だよ！haha!";
+        a.innerHTML="正解だよ！";
       }
       else{  //違ったとき
         var a = document.getElementById("text");
-        a.innerHTML="どうやら";
+        a.innerHTML="キーが違うようだ...";
       }
     }
   }
