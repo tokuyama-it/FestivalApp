@@ -2,7 +2,7 @@
   <section>
     <hr>
     <h1 class="title"></h1>
-    <div class="inputWord">
+    <div class="inputWord" @keydown="doSerch">
       <h2>{{message}}を検索中</h2>
       <hr>
       <table>
@@ -12,16 +12,18 @@
           </td>
         </tr>
       </table>
-      <table>
-        <tr>
-          <th><button @click="setCategoryFlag('all')">全てのイベント</button></th>
-          <th><button @click="setCategoryFlag('main')">メインイベント</button></th>
-          <th><button @click="setCategoryFlag('food')">食べ物</button></th>
-          <th><button @click="setCategoryFlag('stage')">ステージイベント</button></th>
-          <th><button @click="setCategoryFlag('experience')">体験型</button></th>
-          <th><button @click="setCategoryFlag('exhibition')">展示</button></th>
-        </tr>
-      </table>
+      <div style="overflow-y:auto">
+        <table>
+          <tr>
+            <th><button @click="setCategoryFlag('all')"><nobr>全て</nobr></button></th>
+            <th><button @click="setCategoryFlag('main')"><nobr>メイン</nobr></button></th>
+            <th><button @click="setCategoryFlag('food')"><nobr>食べ物</nobr></button></th>
+            <th><button @click="setCategoryFlag('stage')" ><nobr>ステージ</nobr></button></th>
+            <th><button @click="setCategoryFlag('experience')"><nobr>体験型</nobr></button></th>
+            <th><button @click="setCategoryFlag('exhibition')"><nobr>展示</nobr></button></th>
+          </tr>
+        </table>
+      </div>
       <table>
         <tr>
           <th>
@@ -52,6 +54,9 @@
           <td>{{json_data[data]["startAt"]}}</td>
           <td>{{json_data[data]["endAt"]}}</td>
           <td width="50%" >{{json_data[data]["summary"]}}</td>
+        </tr>
+        <tr>
+          <th colspan="4">{{selectedDate}}のイベントは以上です．</th>
         </tr>
       </table>
     </div>
@@ -87,7 +92,7 @@ export default {
   methods:{
     setCategoryFlag:function(category){
       this.serchCategory=category;
-      console.log(this.serchCategory);
+      //console.log(this.serchCategory);
       this.isAllFind=false;
       switch(this.serchCategory){
         case 'all':
@@ -118,7 +123,7 @@ export default {
     doSerch:function(){
       this.find_data = {};
       var sorted_keyArr = [];
-      console.log(this.json_data);
+      //console.log(this.json_data);
       //データを探す．文字列はダブルクォーテーションで囲まれているので気をつける．Do not use ''. Use """.
       for(var item in this.json_data){
         //各種フラグを設定
@@ -146,10 +151,10 @@ export default {
       var tmp = '';
       for(let min = 0; min < sorted_keyArr.length-1; min++){
         for(let i = sorted_keyArr.length-1; min<i; i--){
-          console.log("dev")
-          console.log(this.json_data[sorted_keyArr[i]]["startAt"]);
-          console.log(this.json_data[sorted_keyArr[i-1]]["startAt"]);
-          console.log(this.json_data[sorted_keyArr[i]]["startAt"] < this.json_data[sorted_keyArr[i-1]]["startAt"])
+          //console.log("dev")
+          //console.log(this.json_data[sorted_keyArr[i]]["startAt"]);
+          //console.log(this.json_data[sorted_keyArr[i-1]]["startAt"]);
+          //console.log(this.json_data[sorted_keyArr[i]]["startAt"] < this.json_data[sorted_keyArr[i-1]]["startAt"])
           if(this.json_data[sorted_keyArr[i]]["startAt"] < this.json_data[sorted_keyArr[i-1]]["startAt"]){
             tmp = sorted_keyArr[i];
             sorted_keyArr[i] = sorted_keyArr[i-1];
@@ -157,7 +162,7 @@ export default {
           }
         }
       }
-      console.log(sorted_keyArr);
+      //console.log(sorted_keyArr);
       this.find_data = sorted_keyArr.slice();
     },
 
@@ -172,8 +177,8 @@ export default {
       var firstDate = new Date(this.FestivalConf.firstDate);
       var endDate = new Date(this.FestivalConf.endDate);
       this.FestivalConf.fesLength = ((endDate - firstDate)/86400000) + 1;
-      console.log("festivalConf-----------------------------");
-      console.log(this.FestivalConf);
+      //console.log("festivalConf-----------------------------");
+      //console.log(this.FestivalConf);
 
       this.fesLengTmpArr = new Array(this.FestivalConf.fesLength);
       //初期値として最初の日にちが選択されるようにするための処理
@@ -192,8 +197,8 @@ export default {
       this.selectedDate = selDate.getFullYear()
                         + '-' + (selDate.getMonth() < 9 ? '0' +(selDate.getMonth() + 1):(selDate.getMonth() + 1))
                         + '-' + (selDate.getDate() < 9 ? '0' +(selDate.getDate()):(selDate.getDate()));
-      console.log("selected!! date == ");
-      console.log(this.selectedDate);
+      //console.log("selected!! date == ");
+      //console.log(this.selectedDate);
       this.selectedFlag = true;
       this.doSerch();
     },

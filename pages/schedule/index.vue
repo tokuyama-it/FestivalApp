@@ -1,7 +1,7 @@
 <template>
   <!-- データベースから得られたステージイベントのスケジュールの自動生成 -->
   <section>
-    <h1>{{this.selectedDate}}</h1>
+    <h1>{{this.selectedDate}}のイベント</h1>
     <h1>{{message}}のスケジュール</h1>
     <table class="date">
       <tr>
@@ -30,10 +30,7 @@
         <td>{{json_data[data]["summary"]}}</td>
       </tr>
       <tr>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>選択した日の全てのイベントです</td>
+        <th colspan="4">{{selectedDate}}のイベントは以上です</th>
       </tr>
     </table>
   </section>
@@ -76,11 +73,11 @@ export default {
     switchDate:function(date){
       var dt0 = new Date(this.firstDate);
       dt0.setDate(dt0.getDate() + date);
-      console.log(dt0);
+      //console.log(dt0);
       this.selectedDate = dt0.getFullYear()
                         + '-' + (dt0.getMonth() < 9 ? '0' +(dt0.getMonth() + 1):(dt0.getMonth() + 1))
                         + '-' + (dt0.getDate() < 9 ? '0' +(dt0.getDate()):(dt0.getDate()));
-      console.log(this.selectedDate);
+      //console.log(this.selectedDate);
       this.setEventJson();
     },
 
@@ -93,6 +90,7 @@ export default {
       this.dateJson = new Array(this.holdLength);
 
       this.firstDate = detailData["startDate"].replace(/-/g,'/');
+      this.switchDate(0);
       this.setEventJson();
       }).catch(function(error){
         console.log("ERROR!! faild to get detail Data");
@@ -126,7 +124,7 @@ export default {
         //console.log(this.json_data[sortedJsonArr[0]]["endAt"],this.json_data[sortedJsonArr[1]]["endAt"]);
         //console.log(sortedJsonArr);
         this.sorted_arr = sortedJsonArr.slice();
-        console.log(this.sorted_arr);
+        //console.log(this.sorted_arr);
         this.print_arr = this.sorted_arr.slice();
 
         //メインイベントのデータを開始時間でソートする．
@@ -148,7 +146,7 @@ export default {
           }
         }
         this.sorted_main_arr = sortedJsonArr.slice();
-        console.log(this.print_arr);
+        //console.log(this.print_arr);
 
     }
   },
