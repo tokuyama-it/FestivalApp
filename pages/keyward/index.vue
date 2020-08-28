@@ -123,6 +123,7 @@ export default {
 
 /*入力フォームについてのscc設定*/
 .cp_iptxt {
+  -webkit-appearance: none;
 	position: relative;
 	width: 60%;
   top: 45%;
@@ -131,6 +132,7 @@ export default {
   transform : translate(-50%,-50%); 
 }
 .cp_iptxt input[type='text'] {
+  -webkit-appearance: none;
 	font: 15px/24px sans-serif;
 	box-sizing: border-box;
 	width: 100%;
@@ -139,15 +141,18 @@ export default {
   color: #ffffff;
 }
 .cp_iptxt input[type='text']:focus {
+  -webkit-appearance: none;
 	outline: none;
 }
 .ef {
+  -webkit-appearance: none;
 	padding: 4px 0;
 	border: 0;
 	border-bottom: 1px solid #ffffff;
 	background-color: transparent;
 }
 .ef ~ .focus_line {
+  -webkit-appearance: none;
 	position: absolute;
 	bottom: 0;
 	left: 50%;
@@ -157,6 +162,7 @@ export default {
 	background-color: #ffffff;
 }
 .ef ~ .focus_line {
+  -webkit-appearance: none;
 	position: absolute;
 	bottom: 0;
 	left: 50%;
@@ -167,11 +173,13 @@ export default {
 }
 .ef:focus ~ .focus_line,
 .cp_iptxt.ef ~ .focus_line {
+  -webkit-appearance: none;
 	left: 0;
 	width: 100%;
 	transition: 0.4s;
 }
 .ef ~ label {
+  -webkit-appearance: none;
 	position: absolute;
 	z-index: -1;
 	top: 4px;
@@ -182,6 +190,7 @@ export default {
 	color: #ffffff;
 }
 .ef:focus ~ label, .cp_iptxt.ef ~ label {
+  -webkit-appearance: none;
 	font-size: 12px;
 	top: -16px;
 	transition: 0.3s;
