@@ -6,10 +6,8 @@
     <p id="text">↓キーワードを入力↓</p>
     </div>
     <div class="cp_iptxt">
-      <form>
       <input type="text" id="key" placeholder="" class="ef" style="text-align: center;color: #ffffff" maxlength="5">
       <label>key</label>
-      </form>
       <span class="focus_line"></span>
     </div>
     <button v-on:click="run" class="btn" ontouchstart="">UNLOCK</button>
